@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "278450145001",
+    "project_id": "airfactor-authentication",
+    "storage_bucket": "airfactor-authentication.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:278450145001:android:65247b5799ce2333461278",
+        "android_client_info": {
+          "package_name": "com.example.airfactor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "278450145001-mkdsj3up7579augbu370rql6nrga2425.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMCTwZVUT7upBg-M2mWr8KQx6gZvHFy9A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "278450145001-mkdsj3up7579augbu370rql6nrga2425.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
