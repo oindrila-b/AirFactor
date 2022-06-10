@@ -1,4 +1,5 @@
 import 'package:airpol/screens/dashboard.dart';
+import 'package:airpol/screens/forecastScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:airpol/screens/stats_screen.dart';
 import '../utils/colors.dart' as color;
@@ -14,7 +15,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
   final List _screens = [
     Dashboard(),
     StatsScreen(),
-    Scaffold(),
+    ForecastScreen(),
     Scaffold(),
     Scaffold(),
   ];

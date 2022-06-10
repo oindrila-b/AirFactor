@@ -4,8 +4,6 @@ import './signup.dart';
 import 'package:flutter/material.dart';
 import '../utils/colors.dart' as color;
 import 'bottom_nav_screen.dart';
-import 'dashboard.dart';
-import 'loginbutton.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);

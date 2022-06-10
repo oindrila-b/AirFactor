@@ -1,4 +1,6 @@
+import 'package:airpol/screens/aqi_chart.dart';
 import 'package:airpol/utils/custom_app_bar.dart';
+import 'package:airpol/utils/pollutants_stats_chart.dart';
 import 'package:bubble_tab_indicator/bubble_tab_indicator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -15,93 +17,87 @@ class StatsScreen extends StatefulWidget {
 class _StatsScreenState extends State<StatsScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: color.AppColors.darkPrimary,
-      appBar: CustomAppBar(),
-      body: CustomScrollView(
-        physics: ClampingScrollPhysics() ,
-        slivers: <Widget>[
-          _buildHeader(),
-          _buildRegionTabBar(),
-          _buildStatsTabBar(),
-          SliverPadding(
-            padding: const EdgeInsets.symmetric(horizontal: 10.0),
+    return DefaultTabController(
+      length: 2,
+      child: Scaffold(
+        backgroundColor: color.AppColors.darkPrimary,
+        appBar: AppBar(
+          toolbarHeight: 120,
+          leading: IconButton(
+            icon: const Icon(Icons.menu),
+            iconSize: 28.0,
+            onPressed: () {},
           ),
-          SliverPadding(
-            padding: const EdgeInsets.only(top: 20.0),
-            sliver: SliverToBoxAdapter(
-         //     child: CovidBarChart(covidCases: covidUSADailyNewCases),
+          backgroundColor: color.AppColors.darkPrimary,
+          elevation: 0.0,
+          title: Padding(
+            padding: const EdgeInsets.only(top: 80.0, left: 0.0, bottom: 10),
+            child: Text("Statistics", style: TextStyle(fontSize: 40),),
+          ),
+          actions: <Widget>[
+            IconButton(
+              icon: const Icon(Icons.notifications_none),
+              iconSize: 28.0,
+              onPressed: () {},
             ),
-          ),
-        ],
-      ),
-    );
-  }
-  SliverPadding _buildHeader() {
-    return SliverPadding(
-      padding: const EdgeInsets.all(20.0),
-      sliver: SliverToBoxAdapter(
-        child: Text(
-          'Statistics',
-          style: const TextStyle(
-            color: Colors.white,
-            fontSize: 25.0,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      ),
-    );
-  }
-
-  SliverToBoxAdapter _buildRegionTabBar() {
-    return SliverToBoxAdapter(
-      child: DefaultTabController(
-        length: 2,
-        child: Container(
-          margin: const EdgeInsets.symmetric(horizontal: 20.0),
-          height: 50.0,
-          decoration: BoxDecoration(
-            color: Colors.white24,
-            borderRadius: BorderRadius.circular(25.0),
-          ),
-          child: TabBar(
+          ],
+          centerTitle: true,
+          bottom: TabBar(
             indicator: BubbleTabIndicator(
               tabBarIndicatorSize: TabBarIndicatorSize.tab,
               indicatorHeight: 40.0,
-              indicatorColor: Colors.white,
+              indicatorColor: color.AppColors.whiteColor,
             ),
             labelStyle: Styles.tabTextStyle,
             labelColor: Colors.black,
             unselectedLabelColor: Colors.white,
             tabs: <Widget>[
-              Text('My Area', style: TextStyle(fontSize: 18, fontFamily: 'Comfortaa', fontWeight: FontWeight.bold)),
-              Text('Other Areas',style: TextStyle(fontSize: 18, fontFamily: 'Comfortaa', fontWeight: FontWeight.bold)),
+              Text('My Area', style : TextStyle(fontSize: 18, fontFamily: 'Comfortaa', fontWeight: FontWeight.bold)),
+              Text('Other Areas', style: TextStyle(fontSize: 18, fontFamily: 'Comfortaa', fontWeight: FontWeight.bold)),
             ],
-            onTap: (index) {},
           ),
         ),
-      ),
-    );
-  }
+        body: TabBarView(
+            children: [
+             DefaultTabController(
+                 length: 2,
+                 child: Scaffold(
+                    backgroundColor: color.AppColors.darkPrimary,
+                      appBar: AppBar(
+                        backgroundColor: color.AppColors.darkPrimary,
+                        elevation: 0.0,
+                        automaticallyImplyLeading: false,
+                        toolbarHeight: 5,
+                        bottom: TabBar(
+                          indicator: BubbleTabIndicator(
+                            tabBarIndicatorSize: TabBarIndicatorSize.tab,
+                            indicatorHeight: 30.0,
+                            indicatorColor: color.AppColors.shadedPrimary,
+                          ),
+                          tabs: [
+                            Text('Pollution', style : TextStyle(fontSize: 18, fontFamily: 'Comfortaa', fontWeight: FontWeight.bold, )),
+                            Text('AQI', style: TextStyle(fontSize: 18, fontFamily: 'Comfortaa', fontWeight: FontWeight.bold,)),
+                          ],
+                        ) ,
+                      ),
+                   body: TabBarView(
+                     children: [
+                       Container(
+                         child: PollutionData(),
+                       ),
+                       Container(
+                         child: AQIChartData(),
+                       )
+                     ],
+                   ),
 
-  SliverPadding _buildStatsTabBar() {
-    return SliverPadding(
-      padding: const EdgeInsets.all(20.0),
-      sliver: SliverToBoxAdapter(
-        child: DefaultTabController(
-          length: 3,
-          child: TabBar(
-            indicatorColor: Colors.transparent,
-            labelStyle: Styles.tabTextStyle,
-            labelColor: Colors.white,
-            unselectedLabelColor: Colors.white60,
-            tabs: <Widget>[
-              Text('Pollutants' , style: TextStyle(fontSize: 17, fontFamily: 'Comfortaa', fontWeight: FontWeight.bold)),
-              Text('AQI', style: TextStyle(fontSize: 17, fontFamily: 'Comfortaa', fontWeight: FontWeight.bold)),
-              Text('Forecast', style: TextStyle(fontSize: 17, fontFamily: 'Comfortaa', fontWeight: FontWeight.bold)),
+
+             )
+             ),
+              Scaffold(
+                backgroundColor: color.AppColors.darkPrimary,
+              )
             ],
-            onTap: (index) {},
-          ),
         ),
       ),
     );

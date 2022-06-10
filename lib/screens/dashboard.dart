@@ -1,9 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../utils/area_dropdown.dart';
 import '../utils/custom_app_bar.dart';
 import '../utils/preventionimagedata.dart';
-import 'bottom_nav_screen.dart';
 import '../utils/colors.dart'as color;
 
 class Dashboard extends StatefulWidget {
@@ -14,7 +12,6 @@ class Dashboard extends StatefulWidget {
 }
 
 class _DashboardState extends State<Dashboard> {
-  String _area = 'BTM';
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
@@ -58,11 +55,6 @@ class _DashboardState extends State<Dashboard> {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                // AreaDropdown(
-                //   areas:  ['BTM', 'BWSSB', 'JAYANAGAR', 'HEBBAL', 'PEENYA', 'SILKBOARD'],
-                //   area: _area,
-                //   onChanged: (val) => setState(() => _area = val!),
-                // ),
               ],
             ),
             SizedBox(height: screenHeight * 0.03),

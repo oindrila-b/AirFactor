@@ -12,6 +12,7 @@ import 'dart:ui';
   static Color lightPrimaryOne=const Color(0xFF6588f4);
   static Color lightPrimaryTwo=const Color(0xFFB1BCE6);
   static Color shadedPrimary=const Color(0xFF3b3c5c);
+  static Color lightShadedPrimary=const Color(0x88636B9C);
   static Color darkPrimaryTwo=const Color(0xFF143F6B);
   static Color darkPrimaryThree=const Color(0xFF333C83);
   static Color lightPrimaryThree=const Color(0xFF92B4EC);
