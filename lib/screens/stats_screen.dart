@@ -1,11 +1,11 @@
 import 'package:airpol/screens/aqi_chart.dart';
-import 'package:airpol/utils/custom_app_bar.dart';
 import 'package:airpol/utils/pollutants_stats_chart.dart';
 import 'package:bubble_tab_indicator/bubble_tab_indicator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../utils/colors.dart'as color;
 import '../utils/styles.dart';
+import 'home.dart';
 
 class StatsScreen extends StatefulWidget {
   const StatsScreen({Key? key}) : super(key: key);
@@ -15,7 +15,9 @@ class StatsScreen extends StatefulWidget {
 }
 
 class _StatsScreenState extends State<StatsScreen> {
-  @override
+
+
+@override
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 2,
@@ -36,9 +38,11 @@ class _StatsScreenState extends State<StatsScreen> {
           ),
           actions: <Widget>[
             IconButton(
-              icon: const Icon(Icons.notifications_none),
+              icon: const Icon(Icons.logout_rounded),
               iconSize: 28.0,
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => OnBoardingScreens()));
+              },
             ),
           ],
           centerTitle: true,
@@ -86,12 +90,11 @@ class _StatsScreenState extends State<StatsScreen> {
                          child: PollutionData(),
                        ),
                        Container(
+
                          child: AQIChartData(),
                        )
                      ],
                    ),
-
-
              )
              ),
               Scaffold(
@@ -103,4 +106,9 @@ class _StatsScreenState extends State<StatsScreen> {
     );
   }
 
+  @override
+  void initState() {
+    super.initState();
+
+  }
 }

@@ -15,6 +15,23 @@ class SignupPage extends StatefulWidget {
 class _SignupPageState extends State<SignupPage> {
   final _auth = FirebaseAuth.instance;
   bool showSpinner = false;
+
+
+  @override
+  void initState() {
+    super.initState();
+    FirebaseAuth.instance
+        .authStateChanges()
+        .listen((User? user) {
+      if (user == null) {
+        print('User is currently signed out!');
+      } else {
+        print('User is signed in!');
+      }
+    });
+
+  }
+
   @override
   Widget build(BuildContext context) {
     var emailController = TextEditingController();

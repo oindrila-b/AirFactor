@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import '../utils/custom_app_bar.dart';
 import '../utils/preventionimagedata.dart';
 import '../utils/colors.dart'as color;
@@ -12,6 +13,9 @@ class Dashboard extends StatefulWidget {
 }
 
 class _DashboardState extends State<Dashboard> {
+
+  final TextEditingController _numberCtrl = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
@@ -105,7 +109,9 @@ class _DashboardState extends State<Dashboard> {
                                           side: BorderSide(color: color.AppColors.darkSecondaryFour)
                                       )
                                   )
-                              ), onPressed: () {  },
+                              ), onPressed: () async {
+                              await FlutterPhoneDirectCaller.callNumber(_numberCtrl.text);
+                            },
                             ),
                           ),
                     Padding(
@@ -237,6 +243,12 @@ class _DashboardState extends State<Dashboard> {
         ),
       ),
     );
+  }
+
+  @override
+  void initState() {
+    _numberCtrl.text = "09865447523";
+    super.initState();
   }
 
 }

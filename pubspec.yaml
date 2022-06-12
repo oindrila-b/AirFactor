@@ -42,7 +42,9 @@ dependencies:
   fl_chart: ^0.51.0
   gsheets: ^0.4.2
   get: ^4.6.5
+  hotreloader: ^3.0.2
   intl: ^0.17.0
+  flutter_phone_direct_caller: ^2.1.1
   firebase_auth: ^3.3.19
   firebase_core: ^1.17.1
   modal_progress_hud_nsn: ^0.2.1

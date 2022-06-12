@@ -1,3 +1,4 @@
+import 'package:airpol/screens/home.dart';
 import 'package:flutter/material.dart';
 import 'colors.dart' as color;
 
@@ -14,9 +15,11 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
       ),
       actions: <Widget>[
         IconButton(
-          icon: const Icon(Icons.notifications_none),
+          icon: const Icon(Icons.logout_rounded),
           iconSize: 28.0,
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) => OnBoardingScreens()));
+          },
         ),
       ],
     );
