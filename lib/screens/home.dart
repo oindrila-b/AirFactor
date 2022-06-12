@@ -45,8 +45,8 @@ class _OnBoardingScreensState extends State<OnBoardingScreens> {
         title: 'Pollution levels for today ',
         body: 'Discover the current pollution levels for your area !',
           decoration: const PageDecoration(
-            titleTextStyle: TextStyle(fontWeight: FontWeight.w700, fontSize: 20.0, color: Colors.white, fontFamily: "Comfortaa"),
-            bodyTextStyle: TextStyle(color: Colors.white, fontSize: 15.0, fontFamily: "Comfortaa"),
+            titleTextStyle: TextStyle(fontWeight: FontWeight.w700, fontSize: 18.0, color: Colors.white, fontFamily: "Comfortaa"),
+            bodyTextStyle: TextStyle(color: Colors.white, fontSize: 12.0, fontFamily: "Comfortaa"),
           ),
       ),
       PageViewModel(
@@ -54,8 +54,8 @@ class _OnBoardingScreensState extends State<OnBoardingScreens> {
         title: 'Pollution levels for tomorrow !',
         body: 'Discover the predicted pollution levels for tomorrow!',
         decoration: const PageDecoration(
-          titleTextStyle: TextStyle(fontWeight: FontWeight.w700, fontSize: 20.0, color: Colors.white, fontFamily: "Comfortaa"),
-          bodyTextStyle: TextStyle(color: Colors.white, fontSize: 15.0, fontFamily: "Comfortaa"),
+          titleTextStyle: TextStyle(fontWeight: FontWeight.w700, fontSize: 18.0, color: Colors.white, fontFamily: "Comfortaa"),
+          bodyTextStyle: TextStyle(color: Colors.white, fontSize: 12.0, fontFamily: "Comfortaa"),
         ),
       ),
       PageViewModel(
@@ -63,17 +63,17 @@ class _OnBoardingScreensState extends State<OnBoardingScreens> {
         title: 'Prevention !',
         body: 'Take the necessary steps to prevent the increase of pollution !!',
         decoration: const PageDecoration(
-          titleTextStyle: TextStyle(fontWeight: FontWeight.w700, fontSize: 20.0, color: Colors.white, fontFamily: "Comfortaa"),
-          bodyTextStyle: TextStyle(color: Colors.white, fontSize: 15.0, fontFamily: "Comfortaa"),
+          titleTextStyle: TextStyle(fontWeight: FontWeight.w700, fontSize: 18.0, color: Colors.white, fontFamily: "Comfortaa"),
+          bodyTextStyle: TextStyle(color: Colors.white, fontSize: 12.0, fontFamily: "Comfortaa"),
         ),
         footer: SizedBox(
-          height:50, //height of button
-          width:250,
+          height:40, //height of button
+          width:210,
           child: ElevatedButton(
               child: Text(
                   "Let's Get Started!",
                   style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 15,
                       fontFamily: "Comfortaa",
                       fontWeight: FontWeight.w900)
               ),

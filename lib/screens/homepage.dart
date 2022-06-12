@@ -31,7 +31,7 @@ class _HomePageState extends State<HomePage> {
             style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontFamily: 'Comfortaa',
-            fontSize: 65,
+            fontSize: 50,
             color: color.AppColors.whiteColor),
           ),
         ),

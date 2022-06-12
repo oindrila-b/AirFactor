@@ -54,7 +54,7 @@ class _DashboardState extends State<Dashboard> {
                   'AIRFACTOR',
                   style: const TextStyle(
                     color: Colors.white,
-                    fontSize: 25.0,
+                    fontSize: 20.0,
                     fontFamily: 'Comfortaa',
                     fontWeight: FontWeight.bold,
                   ),
@@ -70,7 +70,7 @@ class _DashboardState extends State<Dashboard> {
                   style: const TextStyle(
                     color: Colors.white,
                     fontFamily: 'Comfortaa',
-                    fontSize: 22.0,
+                    fontSize: 18.0,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
@@ -80,7 +80,7 @@ class _DashboardState extends State<Dashboard> {
                   style: const TextStyle(
                     color: Colors.white70,
                     fontFamily: 'Comfortaa',
-                    fontSize: 15.0,
+                    fontSize: 13.0,
                   ),
                 ),
                 SizedBox(height: screenHeight * 0.03),
@@ -96,7 +96,7 @@ class _DashboardState extends State<Dashboard> {
                                 ) ,
                                 label: Text("Call here!",
                                   style: TextStyle(
-                                      fontSize: 15,
+                                      fontSize: 13,
                                       fontFamily: "Comfortaa",
                                       fontWeight: FontWeight.w900
                                   ),
@@ -114,32 +114,6 @@ class _DashboardState extends State<Dashboard> {
                             },
                             ),
                           ),
-                    Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: ElevatedButton.icon(
-                        onPressed: () {} ,
-                        label: Text("SMS here!",
-                          style: TextStyle(
-                              fontSize: 15,
-                              fontFamily: "Comfortaa",
-                              fontWeight: FontWeight.w900
-                          ),
-                        ),
-                        style: ButtonStyle(
-                            backgroundColor:  MaterialStateProperty.all<Color>(color.AppColors.lightPrimaryOne),
-                            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                                RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(20.0),
-                                    side: BorderSide(color: color.AppColors.lightPrimaryOne)
-                                )
-                            )
-                        ),
-                        icon:  Icon(
-                          Icons.message,
-                          color: Colors.white,
-                        ) ,
-                      ),
-                    )
                   ],
                 ),
               ],
@@ -162,7 +136,7 @@ class _DashboardState extends State<Dashboard> {
               'Precaution Tips',
               style: const TextStyle(
                 fontFamily: 'Comfortaa',
-                fontSize: 22.0,
+                fontSize: 18.0,
                 fontWeight: FontWeight.w600,
               ),
             ),
@@ -180,7 +154,7 @@ class _DashboardState extends State<Dashboard> {
                   Text(
                     e.values.first,
                     style: const TextStyle(
-                      fontSize: 16.0,
+                      fontSize: 12.0,
                       fontWeight: FontWeight.w500,
                     ),
                     textAlign: TextAlign.center,
@@ -199,7 +173,7 @@ class _DashboardState extends State<Dashboard> {
     return SliverToBoxAdapter(
       child: Container(
         margin: const EdgeInsets.symmetric(
-          vertical: 10.0,
+          vertical: 15.0,
           horizontal: 20.0,
         ),
         padding: const EdgeInsets.all(10.0),
@@ -223,7 +197,7 @@ class _DashboardState extends State<Dashboard> {
                   style: const TextStyle(
                     color: Colors.white,
                     fontFamily: 'Comfortaa',
-                    fontSize: 18.0,
+                    fontSize: 15.0,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -233,7 +207,7 @@ class _DashboardState extends State<Dashboard> {
                   style: const TextStyle(
                     color: Colors.white,
                     fontFamily: 'Comfortaa',
-                    fontSize: 16.0,
+                    fontSize: 12.0,
                   ),
                   maxLines: 2,
                 ),
@@ -247,7 +221,7 @@ class _DashboardState extends State<Dashboard> {
 
   @override
   void initState() {
-    _numberCtrl.text = "09865447523";
+    _numberCtrl.text = "9051714858";
     super.initState();
   }
 

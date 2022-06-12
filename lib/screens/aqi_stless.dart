@@ -1,54 +1,52 @@
+import 'package:airpol/screens/aqi_model.dart';
+import 'package:airpol/screens/stats_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
-import 'dart:convert' as convert;
-import 'package:intl/intl.dart';
+import '../utils/colors.dart'as color;
 import 'package:syncfusion_flutter_charts/charts.dart';
 
-import 'aqi_model.dart';
+import 'home.dart';
 
-class AQIChartData extends StatefulWidget {
-  const AQIChartData({Key? key}) : super(key: key);
-
-  @override
-  State<AQIChartData> createState() => _AQIChartDataState();
-}
-
-class _AQIChartDataState extends State<AQIChartData> {
-  late List<AQIModel> aqiData= [];
-  late TooltipBehavior _tooltipBehavior ;
-
-  getAQIDataFromSheet() async{
-    var rawData = await  http.get(
-        Uri.parse("https://script.google.com/macros/s/AKfycbwTh6D6dL3YYIH4ZZ9F6D5Li47_gj5z1vn90hFDy8H35j81e2Ro_L_hnB3ZlVN_dx2h/exec"));
-        var jsonData = convert.jsonDecode(rawData.body);
-         jsonData.forEach((element){
-      var time = DateTime.parse(element['TimeStamp']).toUtc().toLocal();
-      String formattedTime = DateFormat.jm().format(time);
-      AQIModel aqiModel = new AQIModel(
-          timeStamp: formattedTime,
-          aqiValue: element['AQI']);
-        aqiData.add(aqiModel);
-    });
-
-}
-
-  @override
-  void initState() {
-    getAQIDataFromSheet();
-    _tooltipBehavior = TooltipBehavior(enable: true);
-    super.initState();
-  }
+class AQIData extends StatelessWidget {
+  
+  final List<AQIModel> aqiData;
+  
+  const AQIData({Key? key,  required this.aqiData}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
+          appBar: AppBar(
+            toolbarHeight: 100,
+            leading: IconButton(
+              icon: const Icon(Icons.arrow_back_rounded),
+              iconSize: 28.0,
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => StatsScreen()));
+              },
+            ),
+            backgroundColor: color.AppColors.darkPrimary,
+            elevation: 0.0,
+            title: Padding(
+              padding: const EdgeInsets.only(top: 80.0, left: 0.0, bottom: 30),
+              child: Text("AQI ", style: TextStyle(fontSize: 30),),
+            ),
+            actions: <Widget>[
+              IconButton(
+                icon: const Icon(Icons.logout_rounded),
+                iconSize: 28.0,
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => OnBoardingScreens()));
+                },
+              ),
+            ]
+        ),
           body: Center(
             child: Container(
               child: SfCircularChart(
                 title: ChartTitle(text: "Air Quality Index "),
                 legend: Legend(isVisible: true),
-                tooltipBehavior: _tooltipBehavior,
+                tooltipBehavior: TooltipBehavior(enable: true),
                 series: <CircularSeries>[
                   RadialBarSeries<AQIModel, String>(
                       useSeriesColor: true,
@@ -71,6 +69,6 @@ class _AQIChartDataState extends State<AQIChartData> {
             ),
           ),
         )
-    );
+    );;
   }
 }

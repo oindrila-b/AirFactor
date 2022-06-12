@@ -17,7 +17,7 @@ class _LoginSignUpState extends State<LoginSignUp> {
     return Container(
       color: color.AppColors.darkPrimary,
      height: (MediaQuery.of(context).size).height,
-      width: double.infinity,
+      width: (MediaQuery.of(context).size).width,
       child: Stack(
         alignment: Alignment.center,
         children: <Widget>[
@@ -39,7 +39,7 @@ class _LoginSignUpState extends State<LoginSignUp> {
                   style: TextStyle(
                     color: color.AppColors.whiteColor,
                     fontFamily: "Comfortaa",
-                    fontSize: 55,
+                    fontSize: 38,
                       fontWeight: FontWeight.bold
                   ),
                 ),
@@ -48,13 +48,13 @@ class _LoginSignUpState extends State<LoginSignUp> {
 
           Positioned(
             bottom: 350,
-            height:50, //height of button
-            width:250,
+            height:45, //height of button
+            width:210,
                   child: ElevatedButton(
                      child: Text(
                     "   L O G I N   ",
                           style: TextStyle(
-                              fontSize: 25,
+                              fontSize: 20,
                               fontFamily: "Comfortaa",
                            fontWeight: FontWeight.w900)
                              ),
@@ -83,14 +83,14 @@ class _LoginSignUpState extends State<LoginSignUp> {
 
           Positioned(
             bottom: 250,
-            height:50, //height of button
-            width:250,
+            height:45, //height of button
+            width:210,
             child: ElevatedButton(
 
               child: Text(
-                  "   S I G N U P   ",
+                  "   S I G N - U P   ",
                   style: TextStyle(
-                      fontSize: 25,
+                      fontSize: 20,
                       fontFamily: "Comfortaa",
                       fontWeight: FontWeight.w900)
               ),

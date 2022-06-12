@@ -1,43 +1,16 @@
+import 'package:airpol/screens/aqi_model.dart';
+import 'package:airpol/screens/stats_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
-import 'dart:convert' as convert;
-import 'package:intl/intl.dart';
+import '../utils/colors.dart'as color;
 import 'package:syncfusion_flutter_charts/charts.dart';
 
-import 'aqi_model.dart';
+import 'home.dart';
 
-class AQIChartData extends StatefulWidget {
-  const AQIChartData({Key? key}) : super(key: key);
+class StatAQI extends StatelessWidget {
 
-  @override
-  State<AQIChartData> createState() => _AQIChartDataState();
-}
+  final List<AQIModel> aqiData;
 
-class _AQIChartDataState extends State<AQIChartData> {
-  late List<AQIModel> aqiData= [];
-  late TooltipBehavior _tooltipBehavior ;
-
-  getAQIDataFromSheet() async{
-    var rawData = await  http.get(
-        Uri.parse("https://script.google.com/macros/s/AKfycbwTh6D6dL3YYIH4ZZ9F6D5Li47_gj5z1vn90hFDy8H35j81e2Ro_L_hnB3ZlVN_dx2h/exec"));
-        var jsonData = convert.jsonDecode(rawData.body);
-         jsonData.forEach((element){
-      var time = DateTime.parse(element['TimeStamp']).toUtc().toLocal();
-      String formattedTime = DateFormat.jm().format(time);
-      AQIModel aqiModel = new AQIModel(
-          timeStamp: formattedTime,
-          aqiValue: element['AQI']);
-        aqiData.add(aqiModel);
-    });
-
-}
-
-  @override
-  void initState() {
-    getAQIDataFromSheet();
-    _tooltipBehavior = TooltipBehavior(enable: true);
-    super.initState();
-  }
+  const StatAQI({Key? key,  required this.aqiData}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +21,7 @@ class _AQIChartDataState extends State<AQIChartData> {
               child: SfCircularChart(
                 title: ChartTitle(text: "Air Quality Index "),
                 legend: Legend(isVisible: true),
-                tooltipBehavior: _tooltipBehavior,
+                tooltipBehavior: TooltipBehavior(enable: true),
                 series: <CircularSeries>[
                   RadialBarSeries<AQIModel, String>(
                       useSeriesColor: true,
@@ -71,6 +44,6 @@ class _AQIChartDataState extends State<AQIChartData> {
             ),
           ),
         )
-    );
+    );;
   }
 }

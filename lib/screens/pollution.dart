@@ -1,63 +1,50 @@
+import 'package:airpol/screens/pollution_data.dart';
+import 'package:airpol/screens/stats_screen.dart';
+import '../utils/colors.dart'as color;
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
-import 'dart:developer' as developer;
-import 'dart:convert' as convert;
-import 'package:intl/intl.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
-import '../screens/pollution_data.dart';
 
-class PollutionData extends StatefulWidget {
-  const PollutionData({Key? key}) : super(key: key);
+import 'home.dart';
 
-  @override
-  State<PollutionData> createState() => _PollutionDataState();
-}
+class Pollutions extends StatelessWidget {
 
-class _PollutionDataState extends State<PollutionData> {
+   final List<PollutionDataModel> pollutionData;
 
-  late List<PollutionDataModel> pollutionData= [];
-  late TooltipBehavior _tooltipBehavior ;
-
-  getDataFromSheet() async {
-
-    developer.log("Hello");
-    var rawData = await  http.get(
-        Uri.parse("https://script.google.com/macros/s/AKfycbwTh6D6dL3YYIH4ZZ9F6D5Li47_gj5z1vn90hFDy8H35j81e2Ro_L_hnB3ZlVN_dx2h/exec"));
-
-    var jsonData = convert.jsonDecode(rawData.body);
-    jsonData.forEach((element){
-      var time = DateTime.parse(element['TimeStamp']).toUtc().toLocal();
-      String formattedTime = DateFormat.jm().format(time);
-      PollutionDataModel pollutionDataModel = new PollutionDataModel(
-          timeStamp: formattedTime,
-          coValue: element['Carbon_Monoxide'],
-          no2Value: element['Nitrogen_DiOxide'],
-          o3Value: element['Ozone'],
-          pm10Value: element['PM_10'],
-          pm25Value: element['PM_25'],
-          so2Value: element['SO2']);
-
-      pollutionData.add(pollutionDataModel);
-    });
-
-  }
-
-  @override
-  void initState() {
-    getDataFromSheet();
-    _tooltipBehavior = TooltipBehavior(enable: true);
-    super.initState();
-  }
+  const Pollutions({Key? key, required this.pollutionData}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+            toolbarHeight: 100,
+            leading: IconButton(
+              icon: const Icon(Icons.arrow_back_rounded),
+              iconSize: 28.0,
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => StatsScreen()));
+              },
+            ),
+            backgroundColor: color.AppColors.darkPrimary,
+            elevation: 0.0,
+            title: Padding(
+              padding: const EdgeInsets.only(top: 80.0, left: 0.0, bottom: 30),
+              child: Text("Pollution ", style: TextStyle(fontSize: 30),),
+            ),
+            actions: <Widget>[
+        IconButton(
+        icon: const Icon(Icons.logout_rounded),
+        iconSize: 28.0,
+        onPressed: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => OnBoardingScreens()));
+        },
+      ),
+      ]
+        ),
         body: SfCartesianChart(
           title: ChartTitle(text: "Pollution Data "),
           legend: Legend(isVisible: true),
-          tooltipBehavior: _tooltipBehavior,
+          tooltipBehavior: TooltipBehavior(enable: true),
           series: <ChartSeries<PollutionDataModel, String>>[
             ColumnSeries<PollutionDataModel, String>(
                 dataSource: pollutionData,
@@ -97,11 +84,8 @@ class _PollutionDataState extends State<PollutionData> {
           ],
           primaryXAxis: CategoryAxis(),
           primaryYAxis: NumericAxis(maximum: 65),
-
-
         ),
       ),
     );
   }
 }
-

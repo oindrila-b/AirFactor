@@ -49,14 +49,14 @@ class _SignupPageState extends State<SignupPage> {
             Expanded(
               flex: 2,
               child: Padding(
-                padding: const EdgeInsets.only(top: 140, right: 135),
+                padding: const EdgeInsets.only(top: 140, right: 50),
                 child: Text(
-                  " S I G N U P ",
+                  " S I G N - U P ",
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: color.AppColors.whiteColor,
                       fontFamily: "Comfortaa",
-                      fontSize: 50
+                      fontSize: 40
                   ),
                 ),
               ),
@@ -83,26 +83,30 @@ class _SignupPageState extends State<SignupPage> {
                             child: Text("Name : ",
                               style: TextStyle(
                                 fontFamily: "Comfortaa",
-                                fontSize: 22,
+                                fontSize: 18,
                                 color: color.AppColors.lightPrimaryFour,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
                           ),
                           SizedBox(height: 5.0,),
-                          TextField(
-                            controller: nameController,
-                            decoration: InputDecoration(
-                                border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10.0),
-                                    borderSide: BorderSide.none
-                                ),
-                                filled: true,
-                                fillColor: color.AppColors.purplePrimary,
-                                hintText: "Enter Name...",
-                                prefixIcon: Icon(Icons.person, color: color.AppColors.shadedPrimary, )
+                          Container(
+                            height: 55,
+                            child: TextField(
+                              controller: nameController,
+                              decoration: InputDecoration(
+                                  border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(10.0),
+                                      borderSide: BorderSide.none
+                                  ),
+                                  filled: true,
+                                  fillColor: color.AppColors.purplePrimary,
+                                  hintText: "Enter Name...",
+                                  hintStyle: TextStyle(fontSize: 14),
+                                  prefixIcon: Icon(Icons.person, color: color.AppColors.shadedPrimary, )
+                              ),
+                              keyboardType: TextInputType.name,
                             ),
-                            keyboardType: TextInputType.name,
                           ),
                           SizedBox(height: 15.0,),
                           Padding(
@@ -110,26 +114,30 @@ class _SignupPageState extends State<SignupPage> {
                             child: Text("Email : ",
                               style: TextStyle(
                                 fontFamily: "Comfortaa",
-                                fontSize: 22,
+                                fontSize: 18,
                                 color: color.AppColors.lightPrimaryFour,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
                           ),
                           SizedBox(height: 5.0,),
-                          TextField(
-                            controller: emailController,
-                            decoration: InputDecoration(
-                                border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10.0),
-                                    borderSide: BorderSide.none
-                                ),
-                                filled: true,
-                                fillColor: color.AppColors.purplePrimary,
-                                hintText: "Enter E-mail...",
-                                prefixIcon: Icon(Icons.email, color: color.AppColors.shadedPrimary, )
+                          Container(
+                            height: 55,
+                            child: TextField(
+                              controller: emailController,
+                              decoration: InputDecoration(
+                                  border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(10.0),
+                                      borderSide: BorderSide.none
+                                  ),
+                                  filled: true,
+                                  fillColor: color.AppColors.purplePrimary,
+                                  hintText: "Enter E-mail...",
+                                  hintStyle: TextStyle(fontSize: 14),
+                                  prefixIcon: Icon(Icons.email, color: color.AppColors.shadedPrimary, )
+                              ),
+                              keyboardType: TextInputType.name,
                             ),
-                            keyboardType: TextInputType.name,
                           ),
                           SizedBox(height: 15.0,),
                           Padding(
@@ -137,31 +145,35 @@ class _SignupPageState extends State<SignupPage> {
                             child: Text("Password : ",
                               style: TextStyle(
                                 fontFamily: "Comfortaa",
-                                fontSize: 22,
+                                fontSize: 18,
                                 color: color.AppColors.lightPrimaryFour,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
                           ),
-                          TextField(
-                            controller: passwordController,
-                            decoration: InputDecoration(
-                                border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10.0),
-                                    borderSide: BorderSide.none
-                                ),
-                                filled: true,
-                                fillColor: color.AppColors.purplePrimary,
-                                hintText: "Enter password",
-                                prefixIcon: Icon(Icons.password, color: color.AppColors.shadedPrimary, )
+                          Container(
+                            height: 55,
+                            child: TextField(
+                              controller: passwordController,
+                              decoration: InputDecoration(
+                                  border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(10.0),
+                                      borderSide: BorderSide.none
+                                  ),
+                                  filled: true,
+                                  fillColor: color.AppColors.purplePrimary,
+                                  hintText: "Enter password",
+                                  hintStyle: TextStyle(fontSize: 14),
+                                  prefixIcon: Icon(Icons.password, color: color.AppColors.shadedPrimary, )
+                              ),
+                              obscureText: true,
                             ),
-                            obscureText: true,
                           ),
                           SizedBox(height: 30.0,),
                             Container(
                               child: Center(
                                 child: SizedBox(
-                          width: 250, // <-- Your width
+                          width: 220, // <-- Your width
                           height: 50,
                                          child: GestureDetector(
                             onTap: ()  {
@@ -170,7 +182,7 @@ class _SignupPageState extends State<SignupPage> {
                                                              child:  Text(
                                 "  S I G N - U P    ",
                                 style: TextStyle(
-                                    fontSize: 25,
+                                    fontSize: 20,
                                     fontFamily: "Comfortaa",
                                     fontWeight: FontWeight.w900
                                 ),
@@ -255,34 +267,34 @@ class _SignupPageState extends State<SignupPage> {
                       ),
                     ),
                           SizedBox(height: 20.0,),
-                          Center(
-                            child: RichText(text: TextSpan(
-                              text: "Signup through any of these ",
-                              style: TextStyle(
-                                color: color.AppColors.lightPrimaryFour,
-                                fontSize: 16
-                              )
-                            )
-                            ),
-                          ),
-                          Center(
-                            child: Wrap(
-                              children: List<Widget>.generate(
-                                  2, (index) {
-                                    return Padding(
-                                      padding: const EdgeInsets.all(10.0),
-                                      child: CircleAvatar(
-                                        radius: 25,
-                                        backgroundColor: color.AppColors.lightPrimaryFour,
-                                        backgroundImage: AssetImage(
-                                          "images/"+images[index]
-                                        ),
-                                      ),
-                                    );
-                              },
-                              )
-                            ),
-                          )
+                          // Center(
+                          //   child: RichText(text: TextSpan(
+                          //     text: "Signup through any of these ",
+                          //     style: TextStyle(
+                          //       color: color.AppColors.lightPrimaryFour,
+                          //       fontSize: 16
+                          //     )
+                          //   )
+                          //   ),
+                          // ),
+                          // Center(
+                          //   child: Wrap(
+                          //     children: List<Widget>.generate(
+                          //         2, (index) {
+                          //           return Padding(
+                          //             padding: const EdgeInsets.all(10.0),
+                          //             child: CircleAvatar(
+                          //               radius: 25,
+                          //               backgroundColor: color.AppColors.lightPrimaryFour,
+                          //               backgroundImage: AssetImage(
+                          //                 "images/"+images[index]
+                          //               ),
+                          //             ),
+                          //           );
+                          //     },
+                          //     )
+                          //   ),
+                          // )
                         ],
                       ),
                     ),

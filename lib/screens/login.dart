@@ -27,14 +27,14 @@ class _LoginPageState extends State<LoginPage> {
           Expanded(
             flex: 3,
               child: Padding(
-                padding: const EdgeInsets.only(top: 210, right: 135),
+                padding: const EdgeInsets.only(top: 145, right: 100),
                 child: Text(
                   " L O G I N ",
             style: TextStyle(
                 fontWeight: FontWeight.bold,
                 color: color.AppColors.whiteColor,
                 fontFamily: "Comfortaa",
-                fontSize: 50
+                fontSize: 40
             ),
           ),
               ),
@@ -61,26 +61,30 @@ class _LoginPageState extends State<LoginPage> {
                           child: Text("Email : ",
                           style: TextStyle(
                             fontFamily: "Comfortaa",
-                            fontSize: 22,
+                            fontSize: 18,
                             color: color.AppColors.darkSecondarySix,
                             fontWeight: FontWeight.bold,
                           ),
                           ),
                         ),
                         SizedBox(height: 5.0,),
-                          TextField(
-                            controller: emailController,
-                            decoration: InputDecoration(
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10.0),
-                                borderSide: BorderSide.none
+                          Container(
+                            height: 55,
+                            child: TextField(
+                              controller: emailController,
+                              decoration: InputDecoration(
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide.none
+                                ),
+                                filled: true,
+                                fillColor: color.AppColors.darkSecondarySix,
+                                hintText: "Enter E-mail",
+                                hintStyle: TextStyle(fontSize: 14),
+                                prefixIcon: Icon(Icons.email, color: color.AppColors.darkSecondaryFour, )
                               ),
-                              filled: true,
-                              fillColor: color.AppColors.darkSecondarySix,
-                              hintText: "Enter E-mail",
-                              prefixIcon: Icon(Icons.email, color: color.AppColors.darkSecondaryFour, )
+                              keyboardType: TextInputType.emailAddress,
                             ),
-                            keyboardType: TextInputType.emailAddress,
                           ),
                         SizedBox(height: 20.0,),
                         Padding(
@@ -88,27 +92,31 @@ class _LoginPageState extends State<LoginPage> {
                           child: Text("Password : ",
                             style: TextStyle(
                               fontFamily: "Comfortaa",
-                              fontSize: 22,
+                              fontSize: 18,
                               color: color.AppColors.darkSecondarySix,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
                         ),
-                        TextField(
-                          controller: passwordController,
-                          decoration: InputDecoration(
-                              border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                  borderSide: BorderSide.none
-                              ),
-                              filled: true,
-                              fillColor: color.AppColors.darkSecondarySix,
-                              hintText: "Enter password",
-                              prefixIcon: Icon(Icons.password, color: color.AppColors.darkSecondaryFour, )
+                        Container(
+                          height: 55,
+                          child: TextField(
+                            controller: passwordController,
+                            decoration: InputDecoration(
+                                border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10.0),
+                                    borderSide: BorderSide.none
+                                ),
+                                filled: true,
+                                fillColor: color.AppColors.darkSecondarySix,
+                                hintText: "Enter password",
+                                hintStyle: TextStyle(fontSize: 14),
+                                prefixIcon: Icon(Icons.password, color: color.AppColors.darkSecondaryFour, )
+                            ),
+                            obscureText: true,
                           ),
-                          obscureText: true,
                         ),
-                        SizedBox(height: 10.0,),
+                        SizedBox(height: 15.0,),
                         GestureDetector(
                           onTap: () {
                             Navigator.push(context, MaterialPageRoute(builder: (context) =>SignupPage()));
@@ -117,24 +125,24 @@ class _LoginPageState extends State<LoginPage> {
                             "Forgot your Password?",
                             style: TextStyle(
                               fontFamily: "Comfortaa",
-                              fontSize: 15,
+                              fontSize: 12,
                               color: color.AppColors.darkSecondarySix,
                               fontWeight: FontWeight.bold,
                               decoration: TextDecoration.underline,
                             ),
                           ),
                         ),
-                        SizedBox(height: 65.0,),
+                        SizedBox(height: 45.0,),
                         Container(
                           child: Center(
                             child: SizedBox(
-                              width: 250, // <-- Your width
+                              width: 210, // <-- Your width
                               height: 50,
                               child: ElevatedButton(
                                 child:  Text(
                                   "  L O G I N   ",
                                   style: TextStyle(
-                                      fontSize: 25,
+                                      fontSize: 20,
                                       fontFamily: "Comfortaa",
                                       fontWeight: FontWeight.w900
                                   ),
@@ -183,7 +191,7 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                           ),
                         ),
-                        SizedBox(height: 65.0,),
+                        SizedBox(height: 35.0,),
                         Center(
                           child: GestureDetector(
                             onTap: () {
@@ -193,7 +201,7 @@ class _LoginPageState extends State<LoginPage> {
                               "Don't have an account ? SIGN-UP",
                               style: TextStyle(
                                 fontFamily: "Comfortaa",
-                                fontSize: 15,
+                                fontSize: 13,
                                 color: color.AppColors.darkSecondarySix,
                                 fontWeight: FontWeight.bold,
                               ),
