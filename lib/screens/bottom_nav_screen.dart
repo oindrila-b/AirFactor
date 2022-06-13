@@ -3,6 +3,7 @@ import 'package:airpol/screens/forecastScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:airpol/screens/stats_screen.dart';
 import '../utils/colors.dart' as color;
+import 'air_factor_info.dart';
 
 
 
@@ -16,7 +17,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
     Dashboard(),
     StatsScreen(),
     ForecastScreen(),
-    Scaffold(),
+    AirFactorInfo(),
     Scaffold(),
   ];
   int _currentIndex = 0;

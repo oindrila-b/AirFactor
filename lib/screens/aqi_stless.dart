@@ -18,13 +18,6 @@ class AQIData extends StatelessWidget {
         child: Scaffold(
           appBar: AppBar(
             toolbarHeight: 100,
-            leading: IconButton(
-              icon: const Icon(Icons.arrow_back_rounded),
-              iconSize: 28.0,
-              onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => StatsScreen()));
-              },
-            ),
             backgroundColor: color.AppColors.darkPrimary,
             elevation: 0.0,
             title: Padding(
@@ -36,7 +29,7 @@ class AQIData extends StatelessWidget {
                 icon: const Icon(Icons.logout_rounded),
                 iconSize: 28.0,
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => OnBoardingScreens()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const OnBoardingScreens()));
                 },
               ),
             ]
@@ -69,6 +62,6 @@ class AQIData extends StatelessWidget {
             ),
           ),
         )
-    );;
+    );
   }
 }

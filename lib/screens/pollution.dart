@@ -1,5 +1,4 @@
 import 'package:airpol/screens/pollution_data.dart';
-import 'package:airpol/screens/stats_screen.dart';
 import '../utils/colors.dart'as color;
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
@@ -18,13 +17,6 @@ class Pollutions extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
             toolbarHeight: 100,
-            leading: IconButton(
-              icon: const Icon(Icons.arrow_back_rounded),
-              iconSize: 28.0,
-              onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => StatsScreen()));
-              },
-            ),
             backgroundColor: color.AppColors.darkPrimary,
             elevation: 0.0,
             title: Padding(

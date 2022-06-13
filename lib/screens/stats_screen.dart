@@ -14,6 +14,9 @@ import '../utils/colors.dart'as color;
 import '../utils/styles.dart';
 import 'aqi_model.dart';
 import 'home.dart';
+import 'loginsignup.dart';
+import 'otherArea_stless.dart';
+import 'other_aqi_model.dart';
 
 class StatsScreen extends StatefulWidget {
   const StatsScreen({Key? key}) : super(key: key);
@@ -26,6 +29,7 @@ class _StatsScreenState extends State<StatsScreen> {
 
    List<PollutionDataModel> pollutionData = [];
    List<AQIModel> aqiData= [];
+   List<OtherAQIModel> otherAQIData= [];
 
   getDataFromSheet() async {
 
@@ -66,23 +70,32 @@ class _StatsScreenState extends State<StatsScreen> {
 
    }
 
+   getOtherAreasFromSheet() async {
+     var rawData = await http.get(
+         Uri.parse(
+             "https://script.google.com/macros/s/AKfycbwCYnPIZ6Lu73JPuq-7Jn3b-l3xiPW9hRr4AgM4FNDxYsL6jQ_0AncceOC_V2YZhpZD7w/exec"));
+     var jsonData = convert.jsonDecode(rawData.body);
+     jsonData.forEach((element) {
+       print(element);
+       OtherAQIModel otherAQIModel = OtherAQIModel(
+           stationName: element['StationName'],
+           aqiValue: element['AQIValue']);
+       otherAQIData.add(otherAQIModel);
+     });
+   }
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
-        backgroundColor: color.AppColors.darkPrimary,
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           toolbarHeight: 100,
-          leading: IconButton(
-            icon: const Icon(Icons.menu),
-            iconSize: 28.0,
-            onPressed: () {},
-          ),
           backgroundColor: color.AppColors.darkPrimary,
           elevation: 0.0,
           title: Padding(
-            padding: const EdgeInsets.only(top: 80.0, left: 0.0, bottom: 10),
+            padding: const EdgeInsets.only(top: 80.0, left: 0, bottom: 10),
             child: Text("Statistics", style: TextStyle(fontSize: 30),),
           ),
           actions: <Widget>[
@@ -90,7 +103,7 @@ class _StatsScreenState extends State<StatsScreen> {
               icon: const Icon(Icons.logout_rounded),
               iconSize: 28.0,
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => OnBoardingScreens()));
+               showAlertDialog(context);
               },
             ),
           ],
@@ -105,71 +118,106 @@ class _StatsScreenState extends State<StatsScreen> {
             labelColor: Colors.black,
             unselectedLabelColor: Colors.white,
             tabs: <Widget>[
-              Text('My Area', style : TextStyle(fontSize: 15, fontFamily: 'Comfortaa', fontWeight: FontWeight.bold)),
-              Text('Other Areas', style: TextStyle(fontSize: 15, fontFamily: 'Comfortaa', fontWeight: FontWeight.bold)),
+              Text('My Area', style : TextStyle(fontSize: 18, fontFamily: 'Comfortaa', fontWeight: FontWeight.bold)),
+              Text('Other Areas', style: TextStyle(fontSize: 18, fontFamily: 'Comfortaa', fontWeight: FontWeight.bold)),
             ],
+            onTap: (index) {
+            },
           ),
         ),
         body: TabBarView(
             children: [
              DefaultTabController(
                  length: 2,
-                 child: Scaffold(
-                    backgroundColor: color.AppColors.darkPrimary,
-                      appBar: AppBar(
-                        backgroundColor: color.AppColors.darkPrimary,
-                        elevation: 0.0,
-                        automaticallyImplyLeading: false,
-                        toolbarHeight: 5,
-                        bottom: TabBar(
-                          indicator: BubbleTabIndicator(
-                            tabBarIndicatorSize: TabBarIndicatorSize.tab,
-                            indicatorHeight: 20.0,
-                            indicatorColor: color.AppColors.shadedPrimary,
-                          ),
-                          tabs: [
-                            Text('Pollution', style : TextStyle(fontSize: 12, fontFamily: 'Comfortaa', fontWeight: FontWeight.bold, )),
-                            Text('AQI', style: TextStyle(fontSize: 12, fontFamily: 'Comfortaa', fontWeight: FontWeight.bold,)),
-                          ],
-                          onTap: (index) {
-                            if(index == 0) {
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => Pollutions(pollutionData: pollutionData,)));
-                            }else {
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => AQIData(aqiData: aqiData)));
-                            }
-                          },
-                        ) ,
-                      ),
-                   body: TabBarView(
-                     children: [
-                       GestureDetector(
-                         child: StatPollution(pollutionData: pollutionData),
-                         onTap:() => {
-                           Navigator.push(context, MaterialPageRoute(builder: (context) => Pollutions(pollutionData: pollutionData))),
-                         },
-                       ),
-                       GestureDetector(
-                         child: StatAQI(aqiData: aqiData),
-                         onTap:() => {
-                           Navigator.push(context, MaterialPageRoute(builder: (context) => AQIData(aqiData: aqiData))),
-                         },
-                       )
-                     ],
-                   ),
-             )
+                 child: Container(
+                   child: Scaffold(
+                      backgroundColor: color.AppColors.darkPrimary,
+                        appBar: AppBar(
+                          backgroundColor: color.AppColors.darkPrimary,
+                          elevation: 0.0,
+                          automaticallyImplyLeading: false,
+                          toolbarHeight: 5,
+                          bottom: TabBar(
+                            indicator: BubbleTabIndicator(
+                              tabBarIndicatorSize: TabBarIndicatorSize.tab,
+                              indicatorHeight: 30.0,
+                              indicatorColor: color.AppColors.shadedPrimary,
+                            ),
+                            tabs: [
+                              Text('Pollution', style : TextStyle(fontSize: 15, fontFamily: 'Comfortaa', fontWeight: FontWeight.bold, )),
+                              Text('AQI', style: TextStyle(fontSize: 15, fontFamily: 'Comfortaa', fontWeight: FontWeight.bold,)),
+                            ],
+                            onTap: (index) {
+                              if(index == 0) {
+                                Navigator.push(context, MaterialPageRoute(builder: (context) => Pollutions(pollutionData: pollutionData,)));
+                              }else {
+                                Navigator.push(context, MaterialPageRoute(builder: (context) => AQIData(aqiData: aqiData)));
+                              }
+                            },
+                          ) ,
+                        ),
+                     body: TabBarView(
+                       children: [
+                         GestureDetector(
+                           child: StatPollution(pollutionData: pollutionData),
+                           onTap:() => {
+                             Navigator.push(context, MaterialPageRoute(builder: (context) => Pollutions(pollutionData: pollutionData))),
+                           },
+                         ),
+                         GestureDetector(
+                           child: StatAQI(aqiData: aqiData),
+                           onTap:() => {
+                             Navigator.push(context, MaterialPageRoute(builder: (context) => AQIData(aqiData: aqiData))),
+                           },
+                         )
+                       ],
+                     ),
              ),
-              Scaffold(
-                backgroundColor: color.AppColors.darkPrimary,
-              )
+                 )
+             ),
+              GestureDetector(
+              child: OtherAreaLoaded(aqiData: otherAQIData),
+              ),
             ],
         ),
       ),
     );
   }
 
+   showAlertDialog(BuildContext context) {
+     Widget cancelButton = ElevatedButton(
+       child: Text("Cancel"),
+       onPressed:  () {
+         Navigator.pop(context);
+       },
+     );
+     Widget continueButton = ElevatedButton(
+       child: Text("Continue"),
+       onPressed:  () {
+         Navigator.push(context, MaterialPageRoute(builder: (context) => LoginSignUp()));
+       },
+     );
+     AlertDialog alert = AlertDialog(
+       title: Text("LOGOUT!"),
+       content: Text("Would you like to exit the Application ?"),
+       actions: [
+         cancelButton,
+         continueButton,
+       ],
+     );
+
+     showDialog(
+       context: context,
+       builder: (BuildContext context) {
+         return alert;
+       },
+     );
+   }
+
   @override
   void initState() {
     getAQIDataFromSheet();
+    getOtherAreasFromSheet();
     getDataFromSheet();
     super.initState();
   }
