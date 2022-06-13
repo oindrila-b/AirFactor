@@ -7,7 +7,7 @@ import 'screens/homepage.dart';
 Future<void> main()  async {
   runApp(const MyApp());
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp().then((value) => Get.put(AuthController()));
+  await Firebase.initializeApp();
 }
 
 class MyApp extends StatelessWidget {
