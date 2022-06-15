@@ -441,8 +441,8 @@ _showPrecautionsDialog(BuildContext context) {
   Dialog alert = Dialog(
       backgroundColor: Colors.transparent,
       insetPadding: EdgeInsets.symmetric(
-      vertical: 300.0,
-      horizontal: 50.0,
+      vertical: 250.0,
+      horizontal: 30.0,
   ),
 
     child: Container(
@@ -460,7 +460,7 @@ _showPrecautionsDialog(BuildContext context) {
             elevation: 6,
             child: SizedBox(
               width: 250,
-              height: 50,
+              height: 100,
               child: Center(
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
@@ -477,7 +477,7 @@ _showPrecautionsDialog(BuildContext context) {
             elevation: 6,
             child: SizedBox(
               width: 250,
-              height: 50,
+              height: 100,
               child: Center(
                   child: Padding(
                     padding: const EdgeInsets.all(16.0),
@@ -493,7 +493,7 @@ _showPrecautionsDialog(BuildContext context) {
             elevation: 6,
             child: SizedBox(
               width: 250,
-              height: 50,
+              height: 100,
               child: Center(
                   child: Padding(
                     padding: const EdgeInsets.all(16.0),
@@ -509,7 +509,7 @@ _showPrecautionsDialog(BuildContext context) {
             elevation: 6,
             child: SizedBox(
               width: 250,
-              height: 50,
+              height: 100,
               child: Center(
                   child: Padding(
                     padding: const EdgeInsets.all(16.0),
