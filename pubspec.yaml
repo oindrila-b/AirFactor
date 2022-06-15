@@ -47,6 +47,7 @@ dependencies:
   flutter_phone_direct_caller: ^2.1.1
   firebase_auth: ^3.3.19
   firebase_core: ^1.17.1
+  flutter_beautiful_popup: ^1.5.0
   modal_progress_hud_nsn: ^0.2.1
 
 dev_dependencies:
@@ -93,6 +94,10 @@ flutter:
      - images/public-transport.png
      - images/learn_affect.png
      - images/google.png
+     - images/pubtrns.png
+     - images/plantTrees.png
+     - images/recreu.png
+     - images/wearmask.png
      - images/loginSignupBotton.png
      - images/splash_three.png
 
