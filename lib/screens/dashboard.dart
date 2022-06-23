@@ -441,17 +441,19 @@ _showPrecautionsDialog(BuildContext context) {
   Dialog alert = Dialog(
       backgroundColor: Colors.transparent,
       insetPadding: EdgeInsets.symmetric(
-      vertical: 250.0,
+      vertical: 225.0,
       horizontal: 30.0,
   ),
-
-    child: Container(
+      child: Container(
       decoration: BoxDecoration(
         color: Colors.transparent,
         borderRadius: BorderRadius.circular(8.0),
       ),
-      child: ListView(
-        scrollDirection: Axis.horizontal,
+      child: ListWheelScrollView(
+        physics: FixedExtentScrollPhysics(),
+        //perspective: 0.01,
+        diameterRatio: 0.6,
+        itemExtent: 250,
         children: [
           Card(
             shape: RoundedRectangleBorder(
@@ -469,7 +471,6 @@ _showPrecautionsDialog(BuildContext context) {
               ),
             ),
           ),
-          SizedBox(width:  15,),
           Card(
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(Radius.circular(40))
@@ -485,7 +486,6 @@ _showPrecautionsDialog(BuildContext context) {
                   )),
             ),
           ),
-          SizedBox(width:  15,),
           Card(
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(Radius.circular(40))
@@ -501,7 +501,36 @@ _showPrecautionsDialog(BuildContext context) {
                   )),
             ),
           ),
-          SizedBox(width:  15,),
+          Card(
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(40))
+            ),
+            elevation: 6,
+            child: SizedBox(
+              width: 250,
+              height: 100,
+              child: Center(
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Image.asset("images/no_frckr.png"),
+                  )),
+            ),
+          ),
+          Card(
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(40))
+            ),
+            elevation: 6,
+            child: SizedBox(
+              width: 250,
+              height: 100,
+              child: Center(
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Image.asset("images/avd_smkn.png"),
+                  )),
+            ),
+          ),
           Card(
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(Radius.circular(40))

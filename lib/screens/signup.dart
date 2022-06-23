@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import '../utils/colors.dart' as color;
+import 'bottom_nav_screen.dart';
 import 'dashboard.dart';
 
 class SignupPage extends StatefulWidget {
@@ -254,7 +255,7 @@ class _SignupPageState extends State<SignupPage> {
                                                                content: Text('Signup Successful!'),
                                                            )
                                                             );
-                                                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Dashboard()));
+                                                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => BottomNavScreen()));
                                   }
                                 } catch (e) {
                                   print(e);

@@ -30,6 +30,7 @@ class _StatsScreenState extends State<StatsScreen> {
    List<PollutionDataModel> pollutionData = [];
    List<AQIModel> aqiData= [];
    List<OtherAQIModel> otherAQIData= [];
+   bool isLoading = false;
 
   getDataFromSheet() async {
 
@@ -118,7 +119,7 @@ class _StatsScreenState extends State<StatsScreen> {
             labelColor: Colors.black,
             unselectedLabelColor: Colors.white,
             tabs: <Widget>[
-              Text('My Area', style : TextStyle(fontSize: 18, fontFamily: 'Comfortaa', fontWeight: FontWeight.bold)),
+              Text('This Area', style : TextStyle(fontSize: 18, fontFamily: 'Comfortaa', fontWeight: FontWeight.bold)),
               Text('Other Areas', style: TextStyle(fontSize: 18, fontFamily: 'Comfortaa', fontWeight: FontWeight.bold)),
             ],
             onTap: (index) {

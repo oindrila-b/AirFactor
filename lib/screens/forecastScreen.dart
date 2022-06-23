@@ -158,11 +158,6 @@ class _ForecastScreenState extends State<ForecastScreen> {
 List<PM10_Prediction> getPM10Data() {
   final List<PM10_Prediction> chartData = [
 
-    PM10_Prediction(date: "2022-06-10", pm10: 93.84),
-    PM10_Prediction(date: "2022-06-11", pm10: 93.90),
-    PM10_Prediction(date: "2022-06-12", pm10: 93.97),
-    PM10_Prediction(date: "2022-06-13", pm10: 94.04),
-    PM10_Prediction(date: "2022-06-14", pm10: 94.12),
     PM10_Prediction(date: "2022-06-15", pm10: 94.21),
     PM10_Prediction(date: "2022-06-16", pm10: 94.30),
     PM10_Prediction(date: "2022-06-17", pm10: 94.39),
@@ -186,11 +181,6 @@ List<PM10_Prediction> getPM10Data() {
 List<CO_Prediction> getCOData() {
   final List<CO_Prediction> coChartData = [
 
-    CO_Prediction(date: "2022-06-10", co: 0.7957),
-    CO_Prediction(date: "2022-06-11", co: 0.7958),
-    CO_Prediction(date: "2022-06-12", co: 0.7960),
-    CO_Prediction(date: "2022-06-13", co: 0.7966),
-    CO_Prediction(date: "2022-06-14", co: 0.7970),
     CO_Prediction(date: "2022-06-15", co: 0.7981),
     CO_Prediction(date: "2022-06-16", co: 0.7983),
     CO_Prediction(date: "2022-06-17", co: 0.7986),

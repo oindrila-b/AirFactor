@@ -1,13 +1,17 @@
-import 'package:airpol/services/authController.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 import 'screens/homepage.dart';
 Future<void> main()  async {
-  runApp(const MyApp());
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(
+    options: FirebaseOptions(
+        apiKey: "AIzaSyBMCTwZVUT7upBg-M2mWr8KQx6gZvHFy9A",
+        appId: "1:278450145001:android:65247b5799ce2333461278",
+        messagingSenderId: "278450145001",
+        projectId: "airfactor-authentication")
+  );
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
